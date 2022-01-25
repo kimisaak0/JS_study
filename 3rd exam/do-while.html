@@ -15,11 +15,12 @@
         //하여, do-while문은 사용자에게 의사를 먼저 한번 물어보고 루핑을 할지 말지를 결정하는 
         //프로그램 전용으로 사용을 한다.
         //do-while문은 최소 1번은 실행한다는게 while문과의 차이점이다.(조건식이 뒤에 있으니)        
-        do{            
+        do{ 
             sum += i;  //복합대입연산자를 이용하여 값을 누적하고 있다.
             document.write(sum + ", " + i + "<br/>");
             i++;            
-        }while(i<=100)
+            var d = confirm("작업을 진행할까요?");      
+        }while(d)
         document.write("1~" + (i-1) + "까지의 합" + sum);
 
     </script>
