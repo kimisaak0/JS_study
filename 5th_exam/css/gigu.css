@@ -1,7 +1,7 @@
-body{
-    font-size: 10pt;
+body {
+    font-size : 10pt;
 }
-#panel{
+#panel {
     width: 600px;
     height: 500px;
     border: 1px solid #999;
@@ -10,8 +10,8 @@ body{
 #gigu {
     position: absolute;
     width: 80px;
-    left: 50px;
-    top : 120px;
+    left : 50px;
+    top: 120px;
 }
 #nav {
     text-align: center;
