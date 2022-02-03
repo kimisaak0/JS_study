@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>clearInterval()</title>
+</head>
+<style>
+    * {
+        margin : 0;
+        padding: 0;
+    }
+
+    #contents {
+        width: 200px;
+        height: 200px;
+        border: 5px solid blue;
+        margin: 30px;
+        font-size: 100px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 200px;
+    }
+</style>
+<script src="libs/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var $contents = $("#contents");
+        var cnt = 0;
+        let timerID = null;
+        let going = false;
+
+        function addStart() {
+            cnt++;
+            $contents.text(cnt);
+        }
+
+        function addReset() {
+            if(going == true) {
+                clearInterval(timerID);
+                cnt = 0;
+                $contents.text(cnt);
+                going = false;
+            }
+        }
+
+        /*////익명함수 사용
+        $("#start").click(function(){
+            if(going == false) {
+                going = true;
+                timerID = setInterval(function() {
+                    cnt++;
+                    $contents.text(cnt); // text()를 이용하여 div영역에 출력
+                },100);
+            }
+        });
+
+
+        $("#stop").click(function(){
+            cnt = 0;
+            $contents.text(cnt);
+            clearInterval(timerID);
+            going = false;
+        }); 
+        */
+
+
+
+        $("#start").click(function() {
+            if(going == false) {
+                going = true;
+                timerID = setInterval(addStart,100);
+            }
+        });
+
+        $("#stop").click(addReset);
+
+
+});
+    
+
+    
+</script>
+<body>
+    <div id="contents">
+        0
+    </div>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+</html>

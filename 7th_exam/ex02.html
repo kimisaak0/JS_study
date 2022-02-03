@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>SetTimeout()</title>
+</head>
+<style>
+    * {
+        margin : 0;
+        padding: 0;
+    }
+
+    #contents {
+        width: 600px;
+        height: 200px;
+        border: 5px solid blue;
+        margin: 30px;
+        font-size: 50px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 200px;
+    }
+</style>
+<script src="libs/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var $contents = $("#contents");
+
+        ////익명함수 사용
+        //setTimeout(function() {
+        //    $contents.text("힘세고 강한 아침"); // text()를 이용하여 div영역에 출력
+        //},1000);
+
+        function displayText0() {
+            $contents.text(" ");
+        }
+        function displayText1() {
+            $contents.text("힘세고");
+        }
+        function displayText2() {
+            $contents.text("강한");
+        }
+        function displayText3() {
+            $contents.text("아침");
+        }
+        setTimeout(displayText1,1000);
+        setTimeout(displayText2,2000);
+        setTimeout(displayText3,3000);
+        setTimeout(displayText0,4000);
+
+    });
+
+    
+</script>
+<body>
+    <div id="contents">
+    </div>
+</body>
+</html>
