@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/img.css">
-    
+    <title>갤러리 만들기</title>
+    <style>
+        div.image-container {
+            position:  relative;
+        }
+
+        div.image-container img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 120px;
+        }
+    </style>
     <script src="libs/jquery-3.5.1.min.js"></script>
     <script src="js/img.js"></script>
 </head>
 <body>
     <button id="btnStart">START</button>
-    <div class = "image-container" id="container1">
+    <div calss = "image-container" id="container1">
         <img src="images/1.png">
         <img src="images/2.png">
         <img src="images/3.png">
@@ -21,6 +31,7 @@
         <img src="images/6.png">
         <img src="images/7.png">
         <img src="images/8.png">
+
     </div>
 </body>
 </html>
