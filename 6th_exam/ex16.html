@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>일반함수로 네브바 만들기</title>
+    <style>
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+        }
+
+        .tab-menu li {
+            width: 100px;
+            height: 40px;
+            background-position-y: 0;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: top;
+            
+        }
+
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+
+        #menuitem1 { background-image: url(images/newbtn.bar.1.png); }
+        #menuitem2 { background-image: url(images/newbtn.bar.2.png); }
+        #menuitem3 { background-image: url(images/newbtn.bar.3.png); }
+        #menuitem4 { background-image: url(images/newbtn.bar.4.png); }
+        #menuitem5 { background-image: url(images/newbtn.bar.5.png); }
+        #menuitem6 { background-image: url(images/newbtn.bar.6.png); }
+
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            tabMenu("#tabmenu1");
+        });
+
+        function tabMenu(selector) {
+            var $tabMenu = null;
+            var $menuItems = null;
+            var $selectedItem = null;
+
+            function init(selector) {
+                $tabMenu = $(selector);
+                $menuItems = $tabMenu.find("li");
+            }
+
+            function initEvent() {
+                $menuItems.click(function(){
+                    setSelectItem($(this));
+                });
+            }
+
+            function setSelectItem($item) {
+                if($selectedItem != null) {
+                    $selectedItem.removeClass("select");
+                }
+                $selectedItem = $item;
+                $selectedItem.addClass("select");
+    
+                $("#info").html($selectedItem.index());
+    
+            }
+    
+            init(selector);
+            initEvent();
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <ul class="tab-menu" id="tabmenu1">
+        <li id="menuitem1"></li>
+        <li id="menuitem2"></li>
+        <li id="menuitem3"></li>
+        <li id="menuitem4"></li>
+        <li id="menuitem5"></li>
+        <li id="menuitem6"></li>
+    </ul>
+    <div>선택한 인덱스 값 : <span id="info"></span></div>
+</body>
+</html>

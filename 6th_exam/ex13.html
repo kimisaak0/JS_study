@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>콜백함수-3(콜백함수 풀이)</title>
+    <script>
+        //일반적인 함수를 선언하고 호출하는 형태
+        function add(n1, n2) {
+            var temp = n1 + n2;
+            document.write("add()함수로 출력: " + temp + "<br/>");
+            return temp;
+
+            
+        }
+
+        function result(value) {
+            document.write("result() 함수로 출력 결과 : " + value + "<br/>");
+        }
+
+        result(add(1,2));
+
+        document.write("<br/>");
+        document.write("<br/>");
+        document.write("<br/>");
+
+        //콜백함수로 호출
+        //일반적인 함수를 선언하고 호출하는 형태
+        function cadd(n1, n2, callback) {
+            var temp = n1 + n2;
+            callback(temp);
+            document.write("add()함수로 출력: " + temp + "<br/>");
+        }
+
+        function cresult(value) {
+            document.write("result() 함수로 출력 : " + value + "<br/>");
+        }
+
+        cadd(1,2, cresult);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
