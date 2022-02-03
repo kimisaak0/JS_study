@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수-1(함수 리터럴)</title>
+    <script>
+        function hi(name) {
+            document.write(name+"님 환영합니다. <br/>");
+        }
+
+        hi("김이삭")
+        var fhi = hi;
+        fhi("한하은")
+
+        var func = function() {
+            document.write("함수 리터럴");
+        }
+
+        func();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

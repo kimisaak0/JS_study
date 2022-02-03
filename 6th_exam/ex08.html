@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>객체 방식으로 함수정의, 익명함수의 확장으로 함수 정의</title>
+    <script>
+        //var hi = new Function("name", "document.write(name + '님 하이')");
+        //hi("라피");
+
+        (function(name){
+            document.write(name+"님 하이");
+        })("hgd");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

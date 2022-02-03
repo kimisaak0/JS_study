@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수2(매개변수 값으로 함수를 이용)</title>
+    <script>
+        function hi1() {
+            alert("안녕하세요");
+        }
+        function hi2() {
+            alert("반갑습니다");
+        }
+        function exec(func) {
+            func();
+        }
+
+        //C++로 생각하면 함수포인터 만든거랑 마찬가지...
+        exec(hi1);
+        exec(hi2);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
