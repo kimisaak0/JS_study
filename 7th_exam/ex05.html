@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>fish</title>
+    <style>
+        #panel {
+            width: 600px;
+            height: 300px;
+            border: 2px solid #999;
+            position: relative;
+        }
+
+        #bar {
+            position: absolute;
+            left: 50px;
+            top: 190px;
+            width: 500px;
+            height: 20px;
+            background: #f00;
+        }
+
+        #fish {
+            position: absolute;
+            left: 50px;
+            top: 120px;
+        }
+
+        #nav {
+            text-align: center;
+            width: 600px;
+            margin-top: 20px;
+        }
+
+        #btnStart, #btnStop {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //전역변수 선언과 초기화
+        var $fish = null;
+        var step = 50;
+        var timerID = 0;
+
+        $(document).ready(function(){
+            init();
+            initEvent();
+        });
+
+        //요소 초기화 함수
+        function init() {
+            //물고기 요소 찾아오기
+            $fish = $("#fish");
+        }
+
+        //이벤트 등록 함수
+        function initEvent() {
+            $("#btnStart").click(function() {
+                start();
+            });
+
+            $("#btnStop").click(function() {
+                stop();
+            })
+
+        }
+
+        //물고기 움직이기 타이머 시작
+        function start() {
+            if(timerID == 0 ) {
+                timerID = setInterval(function() {
+                    //물고기 움직이기
+                    moveFish();
+                }, 100);
+            }
+        }
+
+        //물고기 멈추기
+        function stop() {
+            clearInterval(timerID);
+            timerID = 0;
+        }
+
+        //물고기 움직이기
+        function moveFish() {
+            //물고기의 다음 위치
+            var x = $fish.position().left + step;
+            if(x >= 430) {
+                //.attr() = 선택자에 의해서 선택된 요소들 중에서
+                //요소의 첫번째 인자인 속성값을 두번째 인자로 변경한다.
+                $fish.attr("src", "images/fish2.png");
+                step *= -1;
+            }
+
+            if(x < 50) {
+                $fish.attr("src", "images/fish1.png");
+                step *= -1;
+            }
+
+            //물고기 선정
+            $fish.css("left", x);
+        }
+    </script>
+    
+</head> 
+<body>
+    <div>
+        <div id="panel">
+            <div id="bar"> </div>
+            <img src="images/fish1.png" id="fish">
+        </div>
+        <div id="nav">
+            <button id="btnStart">시작</button>
+            <button id="btnStop">멈춤</button>
+        </div>
+    </div>
+
+</body>
+</html>
