@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Class</title>
+    <script>
+        var num1 = window.prompt("숫자 하나를 입력하세요", 0);
+        var num2 = window.prompt("숫자 하나를 입력하세요", 0);
+        var min = Math.min(num1, num2);
+        var max = Math.max(num1, num2)
+        alert("입력한 값 중 더 작은 값은 " + min);
+        alert("입력한 값 중 더 큰 값은 " + max);
+
+        document.write("max/min (올림) : " + Math.ceil(max/min) + "<br/>");
+        document.write("max/min (내림) : " + Math.floor(max/min));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
