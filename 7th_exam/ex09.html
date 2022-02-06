@@ -91,7 +91,7 @@
             var rnd2 = Math.floor(Math.random() * 300);
             var time = Math.random() * 450 + 500;
 
-            console.log("rnd1: " + rnd1 + "rnd2: " + rnd2);
+            //console.log("rnd1: " + rnd1 + "rnd2: " + rnd2);
             $fish.animate({
                 left: rnd1, top : rnd2
             }, time); 
@@ -107,7 +107,7 @@
                 clearInterval(timerID);
                 var sec = gameTime/1000;
 
-                console.log(gameTime + " " + sec);
+                //console.log(gameTime + " " + sec);
                 alert(sec + "초");
                 play = false;
             }
