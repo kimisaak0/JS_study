@@ -31,41 +31,50 @@
 
     <script src = "libs/jquery-3.5.1.min.js"> </script>
     <script>
-
+        //제어변수 선언 및 초기화
+            let count = 0;
+            let rnd1 = 0;
+            let rnd2 = 0;
+            let time = 0;
+            let timeID = null;
+            let gaming = false;
 
         $(document).ready(function(){
+            //웹 요소 변수 초기화
             let $gigu = $("#gigu");
             let $score = $("#score");
-            let $startBtn = $("#startBtn")
-            let count = 0;
-            var rnd1 = Math.floor(Math.random() * 500);
-            var rnd2 = Math.floor(Math.random() * 400);
-            var time = Math.floor(Math.random() * 1000);
-            var time2 = time+50;
-            var timeID = null;
-            let gaming = false;
+            let $startBtn = $("#startBtn");
+
+            init();
+
+            function init() {
+                //변수 초기값 세팅
+                rnd1 = Math.floor(Math.random() * 500 + 50);
+                rnd2 = Math.floor(Math.random() * 400 + 50);
+                time = Math.floor(Math.random() * 800 + 200);
+            }
 
             //지구본이 랜덤으로 움직이게 하는 함수
             function animeGigu() {
                 $gigu.animate({
                     left: rnd1, top : rnd2
                 }, time); 
-                rnd1 = Math.floor(Math.random() * 500);
-                rnd2 = Math.floor(Math.random() * 400);
-                time = Math.floor(Math.random() * 1000);
+                rnd1 = Math.floor(Math.random() * 400+150);
+                rnd2 = Math.floor(Math.random() * 300+150);
+                time = Math.floor(Math.random() * 800+200);
             }
 
             $startBtn.click(function(){
                 if(gaming == false) {
                     gaming = true;
-                    timeID = setInterval(animeGigu,time2);
-    
+                    timeID = setInterval(animeGigu,time+10);
+
                     setTimeout(function(){
                         clearInterval(timeID);
+                        $gigu.clearQueue();
                         alert("your score : " + count);
                         count = 0;
-                        time = 10000;
-                        time2 = 10000;
+                        timeSum = 0;
                         $score.text(count);
                         gaming = false;
                     }, 5000);
