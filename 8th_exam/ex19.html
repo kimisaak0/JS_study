@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>array numbers sorting</title>
+    <script>
+        let numbers = [6,32,1,2,4,1234,51,99];
+        document.write("실행 전 <br/>" + numbers.join() + "<br/>");
+        numbers.sort();
+        document.write("sort() 실행 후 <br/>" + numbers.join() + "<br/>");
+        document.write("숫자를 문자열로 처리해서 원하는 결과가 나오지 않음 <br/>");
+        numbers.sort(function(a,b) {
+            if(a>b) return 1;
+            if(a<b) return -1;
+        })
+        document.write("오름차순 실행 <br/>" + numbers.join() + "<br/>");
+        numbers.sort(function(a,b) {
+            if(a>b) return -1;
+            if(a<b) return 1;
+        })
+        document.write("내림차순 실행 <br/>" + numbers.join() + "<br/>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

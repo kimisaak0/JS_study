@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Array-요소추가</title>
     <script>
-        let menus = ["menu1","menu2","menu3","menu4","menu5"]
-        document.write("실행 전 : " + menus.join() + "<br/>");
-        menus.push("menu66");
-        document.write("실행 후 : " + menus.join() + "<br/>");
-        menus.unshift("menu00");
-        document.write("실행 후후 : " + menus.join() + "<br/>");
-        menus.splice(2, 0, "menu333");
-        document.write("실행 후 : " + menus.join() + "<br/>");
+        let menus = ["전열","가운데","후열"]
+        document.write("원본 : <br/>" + menus.join() + "<br/>");
+        menus.push("뒤치기");
+        document.write("push() 실행후 : <br/>" + menus.join() + "<br/>");
+        menus.unshift("앞치기");
+        document.write("unshift() 실행후 : <br/>" + menus.join() + "<br/>");
+        menus.splice(2, 0, "휴지심");
+        document.write("splice(2,0,내용) 실행후: <br/>" + menus.join() + "<br/>");
         menus.splice(2, 1);
-        document.write("실행 후 : " + menus.join() + "<br/>");
+        document.write("splice(2,1) 실행 후: <br/>" + menus.join() + "<br/>");
     </script>
 </head>
 <body>

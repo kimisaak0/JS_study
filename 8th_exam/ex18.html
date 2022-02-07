@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>array sorting</title>
+    <script>
+        let names = ["치즈","체다","늑대","토끼","쪼인"];
+        document.write("원본: <br/>" + names.join() + "<br/>");
+        names.sort();
+        document.write("sorting() (오름차순): <br/>" + names.join()+ "<br/>");
+
+        names.sort(function(a,b) {
+            if(a > b) return -1;
+            if(b < a) return 1;
+            }
+        );
+        document.write("sorting() (내림차순): <br/>" + names.join()+ "<br/>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Array - 삭제</title>
+    <script>
+        let menus = ["전열", "EE","가운데","OO", "후열"];
+        document.write("원본 : <br/>" + menus.join() + "<br/>");    
+
+        //제일 첫요소 삭제
+        menus.shift();
+        document.write("shift() : <br/>" + menus.join() + "<br/>");    
+
+        //마지막 요소 삭제
+        menus.pop();
+        document.write("pop() : <br/>" + menus.join() + "<br/>");    
+
+        //splice로 마무리
+        menus.splice(1,1);
+        document.write("splice() : <br/>" + menus.join() + "<br/>");    
+    </script>
+</head>
+<body>
+
+</body>
+</html>
