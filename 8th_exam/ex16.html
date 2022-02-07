@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array-요소추가</title>
+    <script>
+        let menus = ["menu1","menu2","menu3","menu4","menu5"]
+        document.write("실행 전 : " + menus.join() + "<br/>");
+        menus.push("menu66");
+        document.write("실행 후 : " + menus.join() + "<br/>");
+        menus.unshift("menu00");
+        document.write("실행 후후 : " + menus.join() + "<br/>");
+        menus.splice(2, 0, "menu333");
+        document.write("실행 후 : " + menus.join() + "<br/>");
+        menus.splice(2, 1);
+        document.write("실행 후 : " + menus.join() + "<br/>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

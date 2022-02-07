@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date_class</title>
+    <style>
+        #print {
+            width: 500px;
+            height: 250px;
+            line-height: 50px;
+            border: 3px solid red;
+        }
+
+        #print > div {
+            text-align: center;
+            margin: 15% 0;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $print=$("#print");
+
+            var date = new Date();
+
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var day = date.getDay();
+            var arrDay = ["일", "월", "화", "수", "목", "금", "토"];
+
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+            var ms = date.getMilliseconds();
+
+            $print.html("<div>"+year+"년"+month+"월"+dates+"일 ("+arrDay[day]+"요일) <br/>"+hour+":"+min+":"+sec+"."+ms+"</div>");
+
+        });
+    </script>
+</head>
+<body>
+    <div id="print">
+
+    </div>
+</body>
+</html>

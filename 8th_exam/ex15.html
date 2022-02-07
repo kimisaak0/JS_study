@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 메뉴 생성</title>
+    <style>
+        .menu {
+            list-style: none;
+            border: 2px solid red;
+            height: 50px;
+            padding: 20px;
+        }
+
+        .menu li {
+            display: block;
+            float: left;
+            border: 2px solid blue;
+            padding : 10px;
+            margin-left: 15px;
+        }
+    </style>
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $menu = $(".menu");
+            var $btn = $("#openMenu");
+
+            var menuData = "메뉴2,메뉴3,메뉴4,메뉴5";
+
+            let menuItem = menuData.split(",");
+
+            $btn.click( function() {
+                for(let i=0; i<menuItem.length; i++) {
+                    let newItem = "<li>" + menuItem[i] + "</li>";
+                    $menu.append(newItem);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul class = "menu">
+        <li id = "openMenu">메뉴1</li>
+    </ul>
+</body>
+</html>
