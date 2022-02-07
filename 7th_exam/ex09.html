@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>물고기 게임</title>
+    <style>
+        .container {
+            width : 600px;
+        }
+        .container .board {
+            text-align: center;
+        }
+
+        #start {
+            font-size : 20px;
+            font-weight: bold;
+        }
+        #scoreBoard {
+            font-size : 20px;
+            font-weight: bold;
+            text-align: right;
+            display: block;
+        }
+        #score {
+            color: red;
+        }
+        .panel {
+            width: 600px;
+            height: 400px;
+            position: relative;
+            border: 2px solid blue;
+            margin-top: 20px;
+        }
+
+        #fish {
+            position: absolute;
+            left: 240px;
+            top: 165px;
+        }
+    </style>
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        var cnt=0;
+        var $score = null;
+        var $fish = null;
+        var play = false;
+        var timerID = 0;
+        var gameTime = 0;
+
+        $(document).ready(function(){
+            init();
+            initEvent();
+        });
+
+        function init() {
+            $score = $("#score");
+            $fish = $("#fish");
+            console.log("완료");
+        }
+
+        function initEvent() {
+            $("#start").click(function(){
+                startGame();
+            });
+
+            $fish.click(function(){
+                addScore();
+            });
+        }
+
+        function startGame(){
+            if(play == false) {
+                cnt = 0;
+                play = true;
+                timerID = setInterval(moveFish, 1000);
+            }
+        }
+
+        function addScore(){
+            if(play == true) {
+                if(cnt<10) {
+                    cnt++;
+                    $score.html(cnt);
+                }
+            }
+        }
+
+        function moveFish() {
+            var rnd1 = Math.floor(Math.random() * 500);
+            var rnd2 = Math.floor(Math.random() * 300);
+            var time = Math.random() * 450 + 500;
+
+            //console.log("rnd1: " + rnd1 + "rnd2: " + rnd2);
+            $fish.animate({
+                left: rnd1, top : rnd2
+            }, time); 
+
+            gameTime += time;
+
+            checkEndGame();
+
+        }
+
+        function checkEndGame() {
+            if(cnt >= 10) {
+                clearInterval(timerID);
+                var sec = gameTime/1000;
+
+                //console.log(gameTime + " " + sec);
+                alert(sec + "초");
+                play = false;
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="board">
+            <button id="start">게임 시작</button>
+        </div>
+        <span id="scoreBoard">현재점수 : <bold id="score">0</bold></span>
+
+        <div class="panel">
+            <img src="images/fish1.png" id="fish">
+        </div>
+    </div>
+</body>
+</html>
