@@ -21,6 +21,7 @@ var bigPic = document.querySelector("#cup");
 //노드 리스트로 작은 이미지 찾기
 var smallPic = document.querySelectorAll(".small");
 
+
 for (var i=0; i<smallPic.length; i++) {
     smallPic[i].addEventListener("click", changePic);
 }
