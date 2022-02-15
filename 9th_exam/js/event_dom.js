@@ -1,6 +1,7 @@
 // var pic = document.querySelector("#pic");
 var pic1 = document.getElementById("pic");
 
+//버블링 공부 필요
 // pic.addEventListener("mouseover", changePic, false);
 // pic.addEventListener("mouseout", originPic, false);
 pic1.addEventListener("mouseover", changePic, false);
