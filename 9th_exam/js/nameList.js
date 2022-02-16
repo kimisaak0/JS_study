@@ -34,15 +34,42 @@ function newRegister() {
     var newP = document.createElement("p");
     var userName = document.querySelector("#userName");
     //새로운 텍스트 노드 만들기
-    var text = document.createTextNode(userName.value); 
-
+    var newText = document.createTextNode(userName.value); 
     //상위 요소인 p태그 안에 text노드를 하위 요소로 연결함
-    newP.appendChild(text);
+    newP.appendChild(newText);
+
+    //새로운 버튼이 들어갈 공간 추가
+    var delBtn = document.createElement("span");
+    //새로운 텍스트 노드 추가
+    var delText = document.createTextNode("X");
+    //버튼에다가 class하위요소 연결
+    delBtn.setAttribute("class", "del");
+    //delBtn요소에 delText 텍스트 노드 연결
+    delBtn.appendChild(delText); 
+    //newP 요소에 delBtn요소를 연결
+    newP.appendChild(delBtn);
+
 
     var nameList = document.querySelector("#nameList");
-    //p노드가 #nameList의 하위요소로 추가됨
-    nameList.appendChild(newP);
+    ////p노드가 #nameList의 하위요소로 추가됨
+    ////ameList.appendChild(newP);
+    //p요소를 #nameList의 맨 앞에 추가
+    nameList.insertBefore(newP, nameList.childNodes[0]);
     //텍스트 필드 지우기
     userName.value = "";
+
+    var removeBtns = document.querySelectorAll(".del");
+
+    for(var i=0; i<removeBtns.length; i++) {
+        removeBtns[i].addEventListener("click", function(){
+            //현재 위치 span태그, 부모는 p턔그, p의 부모가 #nameList
+            if(this.parentNode.parentNode) {
+                //p태그를 삭제함
+                this.parentNode.parentNode.removeChild(this.parentNode);
+                
+
+            }
+        });
+    }
 
 }
