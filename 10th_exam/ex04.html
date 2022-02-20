@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>js vs jQuery</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+ 
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        //자바 스크립트로 버튼을 클릭하면 메시지를 출력하는 코드
+    //    window.onload = function() {
+    //        var btn1 = document.getElementById("btn1");
+    //        //IE7 이하 크로스 브라우징 처리
+    //        if(btn1.attachEvnet) {
+    //            btn1.attachEvnet("onclick", function(){
+    //                alert("반갑습니다.");
+    //            });
+    //        } else {
+    //            btn1.addEventListener("click", function(){
+    //                alert("반갑습니다.");
+    //            });
+    //        }
+    //    }
+    //JQuery 아이디가 header인 노드를 찾아서 border 스타일 변경하기
+        $(document).ready(function(){
+            $("#btn1").on("click", function(){
+                alert("반갑습니다.");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">버튼</button>
+    <br/>
+</body>
+</html>
