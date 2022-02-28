@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>$()의 실체-2</title>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function(){
+            //아래와 같은 코드를 사용하면 인스턴스를 5개를 생성하는 꼴이 되며
+            //jQuery 최적화가 이루어지지 않고 메모리를 낭비하는 형태이다.
+            //$("#menu").append("<li>menu1</li>");
+            //$("#menu").append("<li>menu2</li>");
+            //$("#menu").append("<li>menu3</li>");
+            //$("#menu").append("<li>menu4</li>");
+            //$("#menu").append("<li>menu5</li>");
+            //$("#menu").css("border","2px solid red");
+
+            //최적화 
+            var menu = $("#menu");
+            menu.append("<li>menu1</li>");
+            menu.append("<li>menu2</li>");
+            menu.append("<li>menu3</li>");
+            menu.append("<li>menu4</li>");
+            menu.append("<li>menu5</li>");
+            menu.css("border","2px solid red");
+
+            var cnt = 5;
+            $("#addMenu").click(function(){
+                cnt++;
+                menu.append("<li>menu" + cnt + "</li>");
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="addMenu">추가</button>
+    <ul id="menu">
+        <li>menu0</li>
+    </ul>
+    
+</body>
+</html>
