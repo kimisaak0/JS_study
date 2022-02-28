@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 다루기-eq</title>
+    <style>
+
+        div {
+            width: 50px;
+            height: 50px;
+            float : left;
+            background-color: brown;
+            margin : 10px;
+        }
+
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //div가 5개 생성되고 div객체들을 배열로 저장하고 있다.
+            var $divList = $("div");
+            //get과 eq의 차이점
+            var $div_two = $divList.eq(1);  //eq는 반환값이 jQuery 객체
+            $div_two.css("background", "blue"); // jQuery 함수 사용 가능
+
+            var $div_one = $divList.get(0); //get은 반환값이 element
+            $div_one.style.border = "3px dashed red"; // js 문법을 사용해야함
+
+            var $div_five = $divList[4];    //[]는 반환값이 element
+            $div_five.style.border = "3px dashed yellow"; // js 문법을 사용해야함
+
+        });
+    </script>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+</body>
+</html>
