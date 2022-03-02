@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 다루기 - index() 주의점</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li {
+            border: 1px solid gray;
+            margin: 10px;
+        }
+        ul {
+            padding: 10px;
+        }
+        li.select {
+            background-color: #ccc;
+        }
+    </style>
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           var $aList = $("ul li a");
+           $aList.click(function(){
+                //태그가 연속해서 있는 것이 아니면 jQuery객체의 index() 메서드는 각각 0으로 잡힌다.
+                console.log("index = " + $(this).index());
+                //리스트로 잡은 뒤 인덱스를 찍으면 제대로 나옴.
+                console.log("index = " + $aList.index(this));
+
+           });
+       });
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+    </ul>
+</body>
+</html>
