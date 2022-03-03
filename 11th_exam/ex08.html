@@ -24,12 +24,14 @@
     <script src="libs/jquery-3.5.1.min.js"></script>
     <script>
         $(document).ready(function(){
-            // var $liList = $("ul.menu li");
-            // //$liList 배열값 중에서 class선택자값이 .select인 것만 찾아오는 코드
-            // $liList.filter(".select").css("background", "yellow");
+            var $liList = $("ul.menu li");
+            $liList.css("background", "yellow");
+            $liList.filter(".select").css("background", "blue");
 
-            var $content = $("#content");
-            $content.find(".test1").css("background","yellow");
+            var $content = $(".content-data");
+            $content.css("background", "gray");
+            $content.find("p").css("background", "green");
+
         });
     </script>
 </head>
