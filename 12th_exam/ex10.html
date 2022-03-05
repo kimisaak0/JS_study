@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 삭제 (html()과 remove())</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+
+        ul, li {
+            border: 3px solid gray;
+            margin: 10px;
+        }
+
+        ul {
+            padding: 10px;
+        }
+
+        li.select {
+            background-color: aquamarine;
+        }
+
+    </style>
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+            //    var data = "";
+            //    for (var i=1; i<=10; i++) {
+            //        data += "<li>메뉴" + i +"</li>";
+            //    }
+            //    $("#menu").html(data);
+
+                //위의 코드와 결과는 동일하지만
+                //jQuery메소드를 10번이나 호출하므로 효율이 떨어진다.
+                for (var i=1; i<=10; i++) {
+                    $("#menu").append("<li>메뉴" + i +"</li>");
+                }
+            });
+
+            $("#remove").click(function(){
+                //$("#menu").html("");
+                //remove() jQuery메서드는 내부적으로 자식노드의 수만큼 루프를 돔.
+                //기본적으로 단일 객체를 제거하는데 사용해야함
+                $("#menu li").remove();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id = "add">추가하기</button>
+    <button id = "remove">제거하기</button>
+    <ul id="menu">
+
+    </ul>
+    
+</body>
+</html>
